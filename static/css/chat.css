@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    top: 50px;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.chatbox {
+    height: 300px;
+    overflow-y: auto; /* Gunakan overflow-y: auto untuk memunculkan scroll bar jika diperlukan */
+}
+
+/* Sembunyikan scrollbar untuk browser Webkit (misalnya Chrome, Safari) */
+.chatbox::-webkit-scrollbar {
+    display: none;
+}
+
+.message {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 20px;
+    clear: both;
+    overflow: hidden;
+    max-width: 80%; /* Mengatur lebar pesan maksimum */
+}
+
+.user {
+    background-color: #DCF8C6; /* Warna latar belakang untuk pesan pengguna */
+    float: right; /* Menampilkan pesan pengguna di sebelah kanan */
+}
+
+.bot {
+    background-color: #E0E0E0; /* Warna latar belakang untuk pesan bot */
+    float: left; /* Menampilkan pesan bot di sebelah kiri */
+}
+
+form {
+    display: flex;
+    margin-top: 20px;
+}
+
+form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
