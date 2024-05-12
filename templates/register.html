@@ -35,6 +35,10 @@
             // Clear previous error message
             errorMessage.textContent = '';
 
+            setTimeout(function() {
+                errorMessage.textContent = ''; // Clear error message
+            }, 2000);
+
             if (password !== confirmPassword) {
                 errorMessage.textContent = 'Password do not match';
                 event.preventDefault(); // Prevent form submission
@@ -43,6 +47,12 @@
                 }, 2000);
             }
         });
+
+        // Set timeout to clear error message after 2 seconds
+        setTimeout(function() {
+            var errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = ''; // Clear error message
+        }, 2000);
     </script>
 </body>
 </html>
