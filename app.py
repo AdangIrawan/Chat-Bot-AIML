@@ -59,11 +59,13 @@ def register():
 
         # Cek apakah username sudah ada
         if users_collection.find_one({"username": username}):
-            return "Username sudah digunakan."
+            error_message = "Username sudah digunakan. Silakan pilih username lain."
+            return render_template('register.html', error_message=error_message)
 
         # Cek apakah email sudah terdaftar
         if users_collection.find_one({"email": email}):
-            return "Email sudah terdaftar."
+            error_message = "Email sudah terdaftar. Silakan gunakan email lain."
+            return render_template('register.html', error_message=error_message)
 
         # Insert data pengguna baru ke dalam koleksi
         users_collection.insert_one({
@@ -75,6 +77,7 @@ def register():
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

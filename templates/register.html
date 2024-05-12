@@ -4,18 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h2>Register</h2>
-    <form action="/register" method="POST">
+    <form id="registerForm" action="/register" method="POST">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br><br>
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
         <input type="submit" value="Register">
+        <a href="/login">Login</a>
     </form>
-    <a href="/login">Login</a>
+    <div id="errorMessage" class="error-message">{{ error_message }}</div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            var errorMessage = document.getElementById('errorMessage');
+
+            // Clear previous error message
+            errorMessage.textContent = '';
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Password do not match';
+                event.preventDefault(); // Prevent form submission
+                setTimeout(function() {
+                    errorMessage.textContent = ''; // Clear error message after 2 seconds
+                }, 2000);
+            }
+        });
+    </script>
 </body>
 </html>
