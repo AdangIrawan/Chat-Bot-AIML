@@ -6,10 +6,9 @@ import aiml
 app = Flask(__name__)
 app.secret_key = "chatbot_key"
 
-# Inisialisasi koneksi MongoDB
 client = MongoClient("mongodb+srv://NLP:FM5pMe0CgwFHblS7@nlp.jthvadb.mongodb.net/?retryWrites=true&w=majority&appName=NLP")
 db = client.get_database("ACCOUNTS")
-users_collection = db.users  # Koleksi untuk pengguna
+users_collection = db.users
 
 kernel = aiml.Kernel()
 kernel.bootstrap(learnFiles="bot.xml")
@@ -17,7 +16,7 @@ kernel.bootstrap(learnFiles="bot.xml")
 def get_response(user_input):
     return kernel.respond(user_input)
 
-# Fungsi untuk mengenkripsi password
+
 def encrypt_password(password):
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
@@ -52,25 +51,21 @@ def register():
     if 'username' in session:
         return redirect(url_for('home'))
         
-    error_message = ""  # Inisialisasi pesan kesalahan
+    error_message = ""
 
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
 
-        # Enkripsi password sebelum disimpan
         hashed_password = encrypt_password(password)
 
-        # Cek apakah username sudah ada
         if users_collection.find_one({"username": username}):
             error_message = "Username already exists"
 
-        # Cek apakah email sudah terdaftar
         if users_collection.find_one({"email": email}):
             error_message = "Email already exist"
 
-        # Jika tidak ada pesan kesalahan, insert data pengguna baru ke dalam koleksi
         if not error_message:
             users_collection.insert_one({
                 "username": username,
@@ -90,10 +85,8 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # Cari pengguna berdasarkan username
         user = users_collection.find_one({"username": username})
 
-        # Periksa apakah pengguna ada dan password cocok
         if user and bcrypt.checkpw(password.encode('utf-8'), user['password']):
             session['username'] = username
             return redirect(url_for('home'))
