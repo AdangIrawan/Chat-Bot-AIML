@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from pymongo import MongoClient
 import bcrypt
 import aiml
+import csv
 
 app = Flask(__name__)
 app.secret_key = "chatbot_key"
@@ -30,9 +31,23 @@ def home():
 
 @app.route('/about')
 def about():
-    if 'username' in session:
+    # if 'username' in session:
         return render_template('about.html')
-    return redirect(url_for('login'))
+    # return redirect(url_for('login'))
+
+@app.route('/about/vga')
+def aboutvga():
+    vga_list = []
+    try:
+        with open('vga.csv', newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                vga_list.append(row)
+    except Exception as e:
+        print(f"Error reading CSV file: {e}")
+    
+    return render_template('aboutvga.html', vga_list=vga_list)
+
 
 @app.route('/chat')
 def chat():
