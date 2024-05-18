@@ -7,17 +7,13 @@
     <title>Chat</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/chat.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/chat">Chat</a></li>
-        </ul>
-    </nav>
+    {% include 'layouts/navbar.html' %}
     <div class="container">
         <h1>AMOS BOT</h1>
         <div class="chatbox" id="chatbox">
@@ -28,5 +24,6 @@
         </form>
     </div>
 </body>
+{% include 'layouts/footer.html' %}
 
 </html>
