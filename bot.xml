@@ -1,5 +1,8 @@
 <aiml version="2.0">
-
+  <category>
+    <pattern>*</pattern>
+    <template>Hardware Tidak tersedia</template>
+  </category>
   <category>
     <pattern>NVIDIA GEFORCE GT 730 4GB GDDR3</pattern>
     <template>Harga VGA CARD DIGITAL ALLIANCE NVIDIA GEFORCE GT 730 4GB GDDR3 128bit saat ini sekitar Rp530.000.</template>

@@ -12,13 +12,19 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         var input = document.getElementById('pertanyaan').value;
-        chatbox.innerHTML += '<div class="message user">' + input + '</div>';
+        chatbox.innerHTML += '<div class="message user">' + 
+        '<div class="user-text">' + input + '</div>' +
+        '</div>';
 
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var response = xhr.responseText;
-                chatbox.innerHTML += '<div class="message bot">' + response + '</div>';
+                var botMessage = '<div class="message bot">' +
+                                 '<img src="static/image/CHATBOT.png" alt="Bot Icon" class="bot-icon">' +
+                                 '<div class="bot-text">' + response + '</div>' +
+                                 '</div>';
+                chatbox.innerHTML += botMessage;
                 chatbox.scrollTop = chatbox.scrollHeight;
                 sessionStorage.setItem('chatHistory', chatbox.innerHTML);
             }
@@ -27,6 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send("user_input=" + input);
 
-        document.getElementById('pertanyaan').value = '';
-    });
+        document.getElementById('pertanyaan').value = '';
+        });
 });

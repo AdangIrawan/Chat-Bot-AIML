@@ -8,16 +8,15 @@ body {
 .container {
     position: relative;
     top: 50px;
-    max-width: 600px;
+    max-width: 750px;
     margin: auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 
 .chatbox {
-    height: 300px;
+    height: 600px;
     overflow-y: auto; /* Gunakan overflow-y: auto untuk memunculkan scroll bar jika diperlukan */
 }
 
@@ -27,35 +26,107 @@ body {
 }
 
 .message {
-    padding: 10px 20px;
-    margin: 10px 0;
-    border-radius: 20px;
-    clear: both;
-    overflow: hidden;
-    max-width: 80%; /* Mengatur lebar pesan maksimum */
+    display: flex;
+    align-items: center;
+    margin:  0;
 }
 
+
+.message.bot .bot-icon, .user-icon {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.message.bot {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+.message.user{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 200px;
+    
+}
+.bot-icon {
+    width: 40px; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+    height: 40px; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+}
+
+.bot-text {
+    background-color: #1100ff;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 100%;
+    word-wrap: break-word;
+    margin-right: 120px;
+    margin-bottom: 10px;
+}
+.user-text{
+    background-color: #ff0000;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 100%;
+    word-wrap: break-word;
+    margin-right: 70px;
+    margin-left: 100px;
+    margin-bottom: 120px;
+    margin-left: 30px;
+}
+.bot-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
 .user {
-    background-color: #DCF8C6; /* Warna latar belakang untuk pesan pengguna */
+    position: relative;
+    top: 40px;
     float: right; /* Menampilkan pesan pengguna di sebelah kanan */
+    border-radius: 10px;
+    height: 50px; /* Sesuaikan tinggi input sesuai kebutuhan */
+    font-size: 16px; /* Sesuaikan ukuran teks di dalam input */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar elemen */  margin-top: 10px; /* Jarak antara input dan elemen di atasnya */
+    margin-left: 100px;
 }
 
 .bot {
-    background-color: #E0E0E0; /* Warna latar belakang untuk pesan bot */
     float: left; /* Menampilkan pesan bot di sebelah kiri */
+}
+
+.containermasuk {
+    position: relative;
+    max-width: 600px;
+    top: 70px;
+    margin: auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #c7c3c3;
+    box-shadow: 0px 0px 10px 0px rgba(151, 149, 149, 0.1);
 }
 
 form {
     display: flex;
-    margin-top: 20px;
+    padding: 10px;
 }
 
 form input[type="text"] {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 20px;
+    padding-left: 10px;
     margin-right: 10px;
+    border: none;
+}
+
+form input[type="text"]:focus {
+    outline: none; /* Remove default focus outline */
+    border: none; /* Ensure no border is applied */
 }
 
 form input[type="submit"] {
