@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import bcrypt
 import aiml
 import csv
+import os 
 
 app = Flask(__name__)
 app.secret_key = "chatbot_key"
@@ -11,8 +12,14 @@ client = MongoClient("mongodb+srv://NLP:FM5pMe0CgwFHblS7@nlp.jthvadb.mongodb.net
 db = client.get_database("ACCOUNTS")
 users_collection = db.users
 
+# Inisialisasi kernel AIML
 kernel = aiml.Kernel()
-kernel.bootstrap(learnFiles="bot.xml")
+aiml_directory = 'Dataset xml'
+
+# Memuat semua file AIML dari direktori Dataset/xml
+for aiml_file in os.listdir(aiml_directory):
+    if aiml_file.endswith('.xml'):
+        kernel.learn(os.path.join(aiml_directory, aiml_file))
 
 def get_response(user_input):
     return kernel.respond(user_input)
@@ -31,9 +38,9 @@ def home():
 
 @app.route('/about')
 def about():
-    # if 'username' in session:
+    if 'username' in session:
         return render_template('about.html')
-    # return redirect(url_for('login'))
+    return redirect(url_for('login'))
 
 @app.route('/about/vga')
 def aboutvga():
