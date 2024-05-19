@@ -47,7 +47,7 @@ def buat_template_aiml(data):
     return templates
 
 # Nama file CSV dan direktori sumber
-nama_file_csv = 'DsProc.csv'
+nama_file_csv = 'DsVga.csv'
 direktori_sumber = 'Dataset csv'
 
 # Path lengkap ke file CSV
@@ -61,7 +61,7 @@ if data_hardware:  # Lanjutkan jika data berhasil dibaca
     template_aiml = buat_template_aiml(data_hardware)
 
     # Nama file AIML dan direktori tujuan
-    nama_file_aiml = 'proc.xml'
+    nama_file_aiml = 'vga.xml'
     direktori_tujuan = 'Dataset xml'
 
     # Pastikan direktori tujuan ada

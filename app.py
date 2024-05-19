@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 from pymongo import MongoClient
 import bcrypt
 import aiml
 import csv
-import os 
+import os
 
 app = Flask(__name__)
 app.secret_key = "chatbot_key"
@@ -12,18 +12,15 @@ client = MongoClient("mongodb+srv://NLP:FM5pMe0CgwFHblS7@nlp.jthvadb.mongodb.net
 db = client.get_database("ACCOUNTS")
 users_collection = db.users
 
-# Inisialisasi kernel AIML
 kernel = aiml.Kernel()
 aiml_directory = 'Dataset xml'
 
-# Memuat semua file AIML dari direktori Dataset/xml
 for aiml_file in os.listdir(aiml_directory):
     if aiml_file.endswith('.xml'):
         kernel.learn(os.path.join(aiml_directory, aiml_file))
 
 def get_response(user_input):
     return kernel.respond(user_input)
-
 
 def encrypt_password(password):
     salt = bcrypt.gensalt()
@@ -45,8 +42,9 @@ def about():
 @app.route('/about/vga')
 def aboutvga():
     vga_list = []
+    csv_path = os.path.join('Dataset csv', 'DsVga.csv')
     try:
-        with open('vga.csv', newline='', encoding='utf-8') as csvfile:
+        with open(csv_path, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 vga_list.append(row)
@@ -55,6 +53,19 @@ def aboutvga():
     
     return render_template('aboutvga.html', vga_list=vga_list)
 
+@app.route('/about/processor')
+def aboutproc():
+    proc_list = []
+    csv_path = os.path.join('Dataset csv', 'DsProc.csv')
+    try:
+        with open(csv_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                proc_list.append(row)
+    except Exception as e:
+        print(f"Error reading CSV file: {e}")
+    
+    return render_template('aboutproc.html', proc_list=proc_list)
 
 @app.route('/chat')
 def chat():
@@ -67,6 +78,25 @@ def get_bot_response():
     user_input = request.form['user_input']
     bot_response = get_response(user_input)
     return bot_response
+
+@app.route('/get_chat_history', methods=['GET'])
+def get_chat_history():
+    if 'username' in session:
+        user = users_collection.find_one({"username": session['username']})
+        chat_history = user.get('chat_history', "")
+        return jsonify({"chatHistory": chat_history})
+    return jsonify({"chatHistory": ""})
+
+@app.route('/save_chat_history', methods=['POST'])
+def save_chat_history():
+    if 'username' in session:
+        chat_history = request.json.get('chatHistory')
+        users_collection.update_one(
+            {"username": session['username']},
+            {"$set": {"chat_history": chat_history}}
+        )
+        return '', 204
+    return '', 403
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -86,7 +116,7 @@ def register():
             error_message = "Username already exists"
 
         if users_collection.find_one({"email": email}):
-            error_message = "Email already exist"
+            error_message = "Email already exists"
 
         if not error_message:
             users_collection.insert_one({
