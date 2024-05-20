@@ -36,9 +36,9 @@ def home():
 
 @app.route('/about')
 def about():
-    if 'username' in session:
+    # if 'username' in session:
         return render_template('about.html')
-    return redirect(url_for('login'))
+    # return redirect(url_for('login'))
 
 @app.route('/about/vga')
 def aboutvga():
@@ -84,9 +84,9 @@ def aboutram():
 
 @app.route('/chat')
 def chat():
-    if 'username' in session:
+    # if 'username' in session:
         return render_template('chat.html')
-    return redirect(url_for('login'))
+    # return redirect(url_for('login'))
 
 @app.route('/get_response', methods=['POST'])
 def get_bot_response():

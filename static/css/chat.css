@@ -18,10 +18,9 @@ body {
 
 .chatbox {
     height: 350px;
-    overflow-y: auto; /* Gunakan overflow-y: auto untuk memunculkan scroll bar jika diperlukan */
+    overflow-y: auto;
 }
 
-/* Sembunyikan scrollbar untuk browser Webkit (misalnya Chrome, Safari) */
 .chatbox::-webkit-scrollbar {
     display: none;
 }
@@ -32,17 +31,17 @@ body {
     border-radius: 20px;
     clear: both;
     overflow: hidden;
-    max-width: 80%; /* Mengatur lebar pesan maksimum */
+    max-width: 80%;
 }
 
 .user {
-    background-color: #DCF8C6; /* Warna latar belakang untuk pesan pengguna */
-    float: right; /* Menampilkan pesan pengguna di sebelah kanan */
+    background-color: #DCF8C6;
+    float: right;
 }
 
 .bot {
-    background-color: #E0E0E0; /* Warna latar belakang untuk pesan bot */
-    float: left; /* Menampilkan pesan bot di sebelah kiri */
+    background-color: #E0E0E0;
+    float: left;
 }
 
 .container1 {
@@ -58,7 +57,7 @@ body {
 
 .container1 form {
     display: flex;
-    align-items: center; /* Pusatkan vertikal */
+    align-items: center;
 }
 
 .container1 input[type="text"] {
