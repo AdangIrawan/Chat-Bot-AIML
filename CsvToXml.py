@@ -1,7 +1,6 @@
 import csv
 import os
 
-# Fungsi untuk membaca data dari file CSV
 def baca_data_csv(nama_file):
     data = []
     try:
@@ -15,7 +14,6 @@ def baca_data_csv(nama_file):
         print(f"Error saat membaca file CSV: {e}")
     return data
 
-# Fungsi untuk membuat template AIML dari data dan pola pertanyaan
 def buat_template_aiml(data):
     templates = ""
     for item in data:
@@ -46,29 +44,22 @@ def buat_template_aiml(data):
             print(f"Error saat membuat template AIML: {e}")
     return templates
 
-# Nama file CSV dan direktori sumber
-nama_file_csv = 'DsVga.csv'
+nama_file_csv = 'DsRam.csv'
 direktori_sumber = 'Dataset csv'
 
-# Path lengkap ke file CSV
 path_file_csv = os.path.join(direktori_sumber, nama_file_csv)
 
-# Baca data dari file CSV
 data_hardware = baca_data_csv(path_file_csv)
 
-if data_hardware:  # Lanjutkan jika data berhasil dibaca
-    # Buat template AIML dari data
+if data_hardware:
     template_aiml = buat_template_aiml(data_hardware)
 
-    # Nama file AIML dan direktori tujuan
-    nama_file_aiml = 'vga.xml'
+    nama_file_aiml = 'ram.xml'
     direktori_tujuan = 'Dataset xml'
 
-    # Pastikan direktori tujuan ada
     if not os.path.exists(direktori_tujuan):
         os.makedirs(direktori_tujuan)
 
-    # Simpan template AIML ke dalam file di direktori tujuan
     path_file_aiml = os.path.join(direktori_tujuan, nama_file_aiml)
     try:
         with open(path_file_aiml, 'w') as file:

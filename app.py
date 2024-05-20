@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 from pymongo import MongoClient
+from datetime import datetime, timedelta
 import bcrypt
 import aiml
 import csv
@@ -66,6 +67,20 @@ def aboutproc():
         print(f"Error reading CSV file: {e}")
     
     return render_template('aboutproc.html', proc_list=proc_list)
+
+@app.route('/about/ram')
+def aboutram():
+    ram_list = []
+    csv_path = os.path.join('Dataset csv', 'DsRam.csv')
+    try:
+        with open(csv_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                ram_list.append(row)
+    except Exception as e:
+        print(f"Error reading CSV file: {e}")
+    
+    return render_template('aboutram.html', ram_list=ram_list)
 
 @app.route('/chat')
 def chat():
