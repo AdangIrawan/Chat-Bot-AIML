@@ -1,0 +1,36 @@
+/* Navbar tetap di bagian atas halaman */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    position: fixed; /* Tetap di posisi tetap */
+    top: 0; /* Tetap di bagian atas */
+    width: 100%; /* Lebar penuh */
+    z-index: 1000; /* Pastikan navbar berada di atas konten lain */
+}
+
+/* Memberikan ruang di bagian atas konten untuk menghindari tumpang tindih dengan navbar */
+body {
+    padding-top: 50px; /* Sesuaikan nilai ini dengan tinggi navbar Anda */
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    margin: 0; /* Tambahkan ini untuk menghapus margin default */
+    padding: 0; /* Tambahkan ini untuk menghapus padding default */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}

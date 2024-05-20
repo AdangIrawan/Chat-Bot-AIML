@@ -6,13 +6,26 @@
     <title>About</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/aboutchild.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     {% include 'layouts/navbar.html' %}
-    <h1>Welcome to the About Page</h1>
-    <p>This is the about page of our website.</p>
     {% include 'layouts/aboutnav.html' %}
+    <table>
+        <thead>
+            <tr>
+                <th class="centered-text">Daftar Vga</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vga in vga_list %}
+                <tr>
+                    <td class="centered-text">{{ vga['Nama'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     {% include 'layouts/footer.html' %}
 </body>
 </html>
