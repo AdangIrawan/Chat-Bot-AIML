@@ -44,7 +44,7 @@ def buat_template_aiml(data):
             print(f"Error saat membuat template AIML: {e}")
     return templates
 
-nama_file_csv = 'DsSsd.csv'
+nama_file_csv = 'DsMobo.csv'
 direktori_sumber = 'Dataset csv'
 
 path_file_csv = os.path.join(direktori_sumber, nama_file_csv)
@@ -54,7 +54,7 @@ data_hardware = baca_data_csv(path_file_csv)
 if data_hardware:
     template_aiml = buat_template_aiml(data_hardware)
 
-    nama_file_aiml = 'ssd.xml'
+    nama_file_aiml = 'mobo.xml'
     direktori_tujuan = 'Dataset xml'
 
     if not os.path.exists(direktori_tujuan):

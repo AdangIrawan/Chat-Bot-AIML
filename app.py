@@ -36,9 +36,9 @@ def home():
 
 @app.route('/about')
 def about():
-    # if 'username' in session:
+    if 'username' in session:
         return render_template('about.html')
-    # return redirect(url_for('login'))
+    return redirect(url_for('login'))
 
 @app.route('/about/vga')
 def aboutvga():
@@ -82,11 +82,53 @@ def aboutram():
     
     return render_template('aboutram.html', ram_list=ram_list)
 
+@app.route('/about/mobo')
+def aboutmobo():
+    mobo_list = []
+    csv_path = os.path.join('Dataset csv', 'DsMobo.csv')
+    try:
+        with open(csv_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                mobo_list.append(row)
+    except Exception as e:
+        print(f"Error reading CSV file: {e}")
+    
+    return render_template('aboutmobo.html',mobo_list=mobo_list)
+
+@app.route('/about/psu')
+def aboutpsu():
+    psu_list = []
+    csv_path = os.path.join('Dataset csv', 'DsPsu.csv')
+    try:
+        with open(csv_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                psu_list.append(row)
+    except Exception as e:
+        print(f"Error reading CSV file: {e}")
+    
+    return render_template('aboutpsu.html',psu_list=psu_list)
+
+@app.route('/about/ssd')
+def aboutssd():
+    ssd_list = []
+    csv_path = os.path.join('Dataset csv', 'DsSsd.csv')
+    try:
+        with open(csv_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                ssd_list.append(row)
+    except Exception as e:
+        print(f"Error reading CSV file: {e}")
+    
+    return render_template('aboutssd.html',ssd_list=ssd_list)
+
 @app.route('/chat')
 def chat():
-    # if 'username' in session:
+    if 'username' in session:
         return render_template('chat.html')
-    # return redirect(url_for('login'))
+    return redirect(url_for('login'))
 
 @app.route('/get_response', methods=['POST'])
 def get_bot_response():
