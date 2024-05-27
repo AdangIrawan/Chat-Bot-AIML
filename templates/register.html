@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
-    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
 </head>
 
 <body>
@@ -25,5 +24,6 @@
     </form>
     <div id="errorMessage" class="error-message">{{ error_message }}</div>
 </body>
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
 
 </html>
