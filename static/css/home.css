@@ -21,3 +21,48 @@ p {
     text-align: center;
     color: #666;
 }
+
+.instruction-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 40%;
+    text-align: left;
+}
+
+.instruction-box h2 {
+    margin-top: 0;
+}
+
+.instruction-box ol {
+    padding-left: 0;
+    list-style: none; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instruction-box li {
+    display: flex;
+    align-items: center; 
+    text-align: center;
+    color: #666;
+}
+
+.instruction-box li::before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    margin-right: 10px;
+    text-align: right; 
+}
+
+.instruction-box ol {
+    counter-reset: item; 
+}
+
+h2 {
+    text-align: center;
+    color: #666;
+}
