@@ -1,0 +1,10 @@
+<aiml version="2.0">
+    <category>
+        <pattern>*</pattern>
+        <template>Maaf :( Hardware tersebut tidak tersedia dalam daftar</template>
+    </category>
+    <category>
+        <pattern>HALLO</pattern>
+        <template>hallo nama saya amos bot</template>
+    </category>
+</aiml>

@@ -17,11 +17,10 @@ body {
 }
 
 .chatbox {
-    height: 300px;
-    overflow-y: auto; /* Gunakan overflow-y: auto untuk memunculkan scroll bar jika diperlukan */
+    height: 350px;
+    overflow-y: auto;
 }
 
-/* Sembunyikan scrollbar untuk browser Webkit (misalnya Chrome, Safari) */
 .chatbox::-webkit-scrollbar {
     display: none;
 }
@@ -32,41 +31,53 @@ body {
     border-radius: 20px;
     clear: both;
     overflow: hidden;
-    max-width: 80%; /* Mengatur lebar pesan maksimum */
+    max-width: 80%;
 }
 
 .user {
-    background-color: #DCF8C6; /* Warna latar belakang untuk pesan pengguna */
-    float: right; /* Menampilkan pesan pengguna di sebelah kanan */
+    background-color: #DCF8C6;
+    float: right;
 }
 
 .bot {
-    background-color: #E0E0E0; /* Warna latar belakang untuk pesan bot */
-    float: left; /* Menampilkan pesan bot di sebelah kiri */
+    background-color: #E0E0E0;
+    float: left;
 }
 
-form {
+.container1 {
+    position: relative;
+    top: 70px;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.container1 form {
     display: flex;
-    margin-top: 20px;
+    align-items: center;
 }
 
-form input[type="text"] {
+.container1 input[type="text"] {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 30px;
     margin-right: 10px;
 }
 
-form input[type="submit"] {
+.container1 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
 }
 
-form input[type="submit"]:hover {
-    background-color: #45a049;
+.container1 input[type="submit"]:hover {
+    background-color: #0056b3;
 }
+
