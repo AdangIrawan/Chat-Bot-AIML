@@ -1,6 +1,3 @@
-/* style.css */
-
-/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -12,32 +9,7 @@ body {
     background-color: #f0f0f0;
     color: #333;
     line-height: 1.6;
-    padding: 20px;
-}
-
-nav {
-    background-color: #333;
-    padding: 10px 0;
-}
-
-nav ul {
-    list-style: none;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: #555;
+    padding: 0;
 }
 
 h1 {
@@ -47,6 +19,50 @@ h1 {
 
 p {
     text-align: center;
-    margin-top: 20px;
+    color: #666;
+}
+
+.instruction-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 40%;
+    text-align: left;
+}
+
+.instruction-box h2 {
+    margin-top: 0;
+}
+
+.instruction-box ol {
+    padding-left: 0;
+    list-style: none; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instruction-box li {
+    display: flex;
+    align-items: center; 
+    text-align: center;
+    color: #666;
+}
+
+.instruction-box li::before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    margin-right: 10px;
+    text-align: right; 
+}
+
+.instruction-box ol {
+    counter-reset: item; 
+}
+
+h2 {
+    text-align: center;
     color: #666;
 }

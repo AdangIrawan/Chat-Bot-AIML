@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
-    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/chat">Chat</a></li>
-        </ul>
-    </nav>
+    {% include 'layouts/navbar.html' %}
     <h1>Welcome to the Home Page</h1>
-    <p>This is the home page of our website.</p>
+
+    <div class="instruction-box">
+        <h2>Petunjuks</h2>
+        <ol>
+            <li>Intel core i7 14700f</li>
+            <li>Berapa harga Intel core i7 14700f</li>
+            <li>Intel core i7 14700f kira kira harganya berapa?</li>
+            <li>Harga Intel core i7 14700f saat ini berapa?</li>
+        </ol>
+    </div>
+
+    {% include 'layouts/footer.html' %}
 </body>
 </html>
