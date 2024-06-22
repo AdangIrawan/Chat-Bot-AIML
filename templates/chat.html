@@ -12,8 +12,8 @@
     <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 </head>
 
+{% include 'layouts/navbar.html' %}
 <body>
-    {% include 'layouts/navbar.html' %}
     <div class="container">
         <h1>AMOS BOT</h1>
         <div class="chatbox" id="chatbox">
@@ -25,5 +25,5 @@
     </div>
 </body>
 {% include 'layouts/footer.html' %}
-
+5
 </html>

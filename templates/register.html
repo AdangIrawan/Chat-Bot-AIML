@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
     <title>Register</title>
-    <style>
-        .error-message {
-            color: red;
-        }
-    </style>
 </head>
-<body>
-    <h2>Register</h2>
-    <form id="registerForm" action="/register" method="POST">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <label for="confirmPassword">Confirm Password:</label><br>
-        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
-        <input type="submit" value="Register">
-        <a href="/login">Login</a>
-    </form>
-    <div id="errorMessage" class="error-message">{{ error_message }}</div>
 
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='image/CHATBOT.jpg') }}" alt="Logo" width="200px">
+        </div>
+        <section class="Register">
+            <h2>Register</h2>
+            <form id="registerForm" action="/register" method="POST">
+                <input type="text" id="username" name="username" placeholder="Username" required><br><br>
+                <input type="email" id="email" name="email" placeholder="Email"required><br><br>
+                <input type="password" id="password" name="password" placeholder="Password"required><br><br>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required><br><br>
+                <input type="submit" value="Register">
+                <a href="/login" class="register-text">Already have account?</a>
+            </form>
+            <div id="errorMessage" class="error-message">{{ error_message }}</div>
+        </section>
+    </div>
     <script>
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
             var password = document.getElementById('password').value;
             var confirmPassword = document.getElementById('confirmPassword').value;
             var errorMessage = document.getElementById('errorMessage');
@@ -35,24 +35,25 @@
             // Clear previous error message
             errorMessage.textContent = '';
 
-            setTimeout(function() {
+            setTimeout(function () {
                 errorMessage.textContent = ''; // Clear error message
             }, 2000);
 
             if (password !== confirmPassword) {
                 errorMessage.textContent = 'Password do not match';
                 event.preventDefault(); // Prevent form submission
-                setTimeout(function() {
+                setTimeout(function () {
                     errorMessage.textContent = ''; // Clear error message after 2 seconds
                 }, 2000);
             }
         });
 
         // Set timeout to clear error message after 2 seconds
-        setTimeout(function() {
+        setTimeout(function () {
             var errorMessage = document.getElementById('errorMessage');
             errorMessage.textContent = ''; // Clear error message
         }, 2000);
     </script>
 </body>
+
 </html>

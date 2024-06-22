@@ -1,0 +1,46 @@
+.header{
+    position: relative;
+    top: -100px;
+}
+.custom-navbar {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    top: 120px;
+    margin-bottom: 20px;
+    background: rgba(207, 227, 243, 0.9);
+    z-index: 1000;
+}
+.navbar-nav .nav-link {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-right: 15px;
+}
+.navbar-nav .nav-link:hover {
+    color: rgb(93, 178, 247);
+}
+.navbar-nav .btn {
+    border-radius: 25px;
+}
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-item {
+    color: blue;
+}
+
+.logout-item .nav-link:hover {
+    background-color: rgb(250, 2, 126);
+    color: white;
+}
+.chat-item .nav-link:hover {
+    background-color: blue; 
+    color: white;
+}
+.home-item .nav-link:hover {
+    background-color: blue; 
+    color: white; 
+}
