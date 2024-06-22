@@ -1,0 +1,89 @@
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-image: url('../image/gedung.png');
+    background-size: cover; /* Menyesuaikan ukuran gambar agar menutupi seluruh background */
+    background-repeat: no-repeat; /* Mencegah gambar mengulang */
+    background-position: center; /* Menempatkan gambar di tengah */
+    overflow: hidden; /* Mencegah scroll */
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    margin-bottom: 20px; /* Memberi sedikit ruang antara logo dan form */
+}
+
+section.Login {
+    padding:100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    max-width: 300px;
+    width: 100%;
+    background: transparent;
+    border-radius: 10px;
+    box-sizing: border-box; /* Termasuk padding dan border dalam ukuran elemen */
+}
+
+section.Login form {
+    flex-direction: column;
+    align-items: center; /* Pastikan konten di dalam form juga terpusat */
+}
+
+section.Login input[type="text"], section.Login input[type="password"] {
+    margin-bottom: -10px; /* Margin bawah untuk ruang antara input */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+    width: 150%;
+    box-sizing: border-box;
+    height: 50px;
+}
+
+section.Login input[type="submit"] {
+    background-color: #00a2ff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    width: 150%;
+    height: 50px;
+    margin-top: 40px; /* Memberi ruang di atas tombol login */
+}
+
+section.Login input[type="submit"]:hover {
+    background-color: #0076fd;
+}
+
+.register-text {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px; /* Memberi ruang antara form dan teks register */
+    display: block; /* Memastikan teks register berada di bawah form */
+    margin-left: 5px;
+}
+
+.register-text:hover{
+    color: #0076fd;
+}
