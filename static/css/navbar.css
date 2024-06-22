@@ -1,36 +1,46 @@
-/* Navbar tetap di bagian atas halaman */
-nav {
-    background-color: #333;
-    padding: 10px 0;
-    position: fixed; /* Tetap di posisi tetap */
-    top: 0; /* Tetap di bagian atas */
-    width: 100%; /* Lebar penuh */
-    z-index: 1000; /* Pastikan navbar berada di atas konten lain */
+.header{
+    position: relative;
+    top: -100px;
+}
+.custom-navbar {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    top: 120px;
+    margin-bottom: 20px;
+    background: rgba(207, 224, 243, 0.9);
+    z-index: 1000;
+}
+.navbar-nav .nav-link {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-right: 15px;
+}
+.navbar-nav .nav-link:hover {
+    color: rgb(93, 178, 247);
+}
+.navbar-nav .btn {
+    border-radius: 25px;
+}
+.navbar .containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-item {
+    color: rgb(0, 255, 128);
 }
 
-/* Memberikan ruang di bagian atas konten untuk menghindari tumpang tindih dengan navbar */
-body {
-    padding-top: 50px; /* Sesuaikan nilai ini dengan tinggi navbar Anda */
+.logout-item .nav-link:hover {
+    background-color: rgb(250, 2, 126);
+    color: white;
 }
-
-nav ul {
-    list-style: none;
-    text-align: center;
-    margin: 0; /* Tambahkan ini untuk menghapus margin default */
-    padding: 0; /* Tambahkan ini untuk menghapus padding default */
+.chat-item .nav-link:hover {
+    background-color: blue; 
+    color: white;
 }
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: #555;
+.home-item .nav-link:hover {
+    background-color: blue; 
+    color: white; 
 }
