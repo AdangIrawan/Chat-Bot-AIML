@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         var input = document.getElementById('pertanyaan').value;
 
-        chatbox.innerHTML += '<div class="message user">' + input + '</div>';
+        chatbox.innerHTML += '<div class="message-container user-container"><div class="message user">' + input + '</div></div>';
 
         document.getElementById('chatbox').lastElementChild.scrollIntoView();
 
@@ -25,7 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 var response = xhr.responseText;
 
                 setTimeout(function () {
-                    chatbox.innerHTML += '<div class="message bot">' + response + '</div>';
+                    chatbox.innerHTML += `
+                        <div class="message-container bot-container">
+                            <img src="/static/image/CHATBOT.png" class="bot-icon">
+                            <div class="message bot">
+                                ${response}
+                            </div>
+                        </div>`;
                     chatbox.scrollTop = chatbox.scrollHeight;
 
                     fetch('/save_chat_history', {

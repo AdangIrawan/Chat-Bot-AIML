@@ -12,20 +12,18 @@
 <body>
     {% include 'layouts/navbar.html' %}
     {% include 'layouts/aboutnav.html' %}
-    <table>
-        <thead>
-            <tr>
-                <th class="centered-text">Daftar Vga</th>
-            </tr>
-        </thead>
+    <table class="daftar">
+       
         <tbody>
+            <th class="centered-text">Daftar Motherboard</th>
             {% for vga in vga_list %}
                 <tr>
                     <td class="centered-text">{{ vga['Nama'] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
-    </table>
+
+</table>
     {% include 'layouts/footer.html' %}
 </body>
 </html>

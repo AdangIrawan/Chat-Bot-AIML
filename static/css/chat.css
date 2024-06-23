@@ -8,51 +8,76 @@ body {
 .container {
     position: relative;
     top: 50px;
-    max-width: 600px;
+    max-width: 800px;
+    height: 700px; /* Tinggi container ditambahkan di sini */
     margin: auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Tambahkan overflow hidden untuk memastikan konten tidak keluar */
 }
 
 .chatbox {
-    height: 350px;
+    height: 600px;
     overflow-y: auto;
+    margin-bottom: 20px; /* Tambahkan margin bawah untuk memastikan jarak antara .chatbox dan input */
 }
 
 .chatbox::-webkit-scrollbar {
     display: none;
 }
 
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.bot-container {
+    justify-content: flex-start;
+}
+
+.user-container {
+    justify-content: flex-end;
+}
+
 .message {
     padding: 10px 20px;
-    margin: 10px 0;
     border-radius: 20px;
-    clear: both;
-    overflow: hidden;
     max-width: 80%;
+    word-wrap: break-word;
+}
+
+.bot-icon {
+    margin-top: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 .user {
-    background-color: #DCF8C6;
-    float: right;
+    background-color: rgb(159, 196, 238);
+    align-self: flex-end;
 }
 
 .bot {
-    background-color: #E0E0E0;
-    float: left;
+    background-color: #e0e0e0;
+    align-self: flex-start;
 }
 
 .container1 {
     position: relative;
     top: 70px;
-    max-width: 600px;
+    max-width: 800px;
+    height: 100px;
     margin: auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .container1 form {
@@ -66,6 +91,9 @@ body {
     border: 1px solid #ccc;
     border-radius: 30px;
     margin-right: 10px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
 }
 
 .container1 input[type="submit"] {
@@ -74,6 +102,7 @@ body {
     color: white;
     border: none;
     border-radius: 20px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -81,3 +110,33 @@ body {
     background-color: #0056b3;
 }
 
+/* Ensuring messages do not overlap or appear in the same line */
+.chatbox::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.btn {
+    display: inline-block;
+    background-image: linear-gradient(to right, #4facfe 0%, rgb(159, 196, 238) 100%); /* Gradient background */
+    color: white; /* Warna teks */
+    border: none; /* Tanpa border */
+    padding: 15px 30px; /* Padding */
+    border-radius: 30px; /* Border radius */
+    cursor: pointer; /* Kursor pointer saat dihover */
+    text-decoration: none; /* Tanpa dekorasi teks */
+    font-size: 18px; /* Ukuran teks */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow */
+    transition: all 0.3s ease; /* Animasi transisi */
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Efek hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Shadow saat hover */
+}
+
+/* CSS untuk ikon */
+.icon {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+    font-size: 24px; /* Ukuran ikon */
+}

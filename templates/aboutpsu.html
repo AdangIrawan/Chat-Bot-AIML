@@ -12,19 +12,17 @@
 <body>
     {% include 'layouts/navbar.html' %}
     {% include 'layouts/aboutnav.html' %}
-    <table>
-        <thead>
-            <tr>
+       <table class="daftar">
+       
+            <tbody>
                 <th class="centered-text">Daftar Power Supply</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for psu in psu_list %}
-                <tr>
-                    <td class="centered-text">{{ psu['Nama'] }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+                {% for psu in psu_list %}
+                    <tr>
+                        <td class="centered-text">{{ psu['Nama'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
     </table>
     {% include 'layouts/footer.html' %}
 </body>

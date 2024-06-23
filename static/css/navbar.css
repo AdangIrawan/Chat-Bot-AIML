@@ -9,8 +9,15 @@
     position: relative;
     top: 120px;
     margin-bottom: 20px;
-    background: rgba(207, 224, 243, 0.9);
+    background: rgb(159, 196, 238);
     z-index: 1000;
+    border-radius: 25px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px; /* Tambahkan padding untuk area klik yang lebih besar */
+    transition: background-color 0.3s ease;
 }
 .navbar-nav .nav-link {
     color: rgb(0, 0, 0);
@@ -28,12 +35,9 @@
     justify-content: center;
     align-items: center;
 }
-.nav-item {
-    color: rgb(0, 255, 128);
-}
 
 .logout-item .nav-link:hover {
-    background-color: rgb(250, 2, 126);
+    background-color: blue;
     color: white;
 }
 .chat-item .nav-link:hover {
@@ -43,4 +47,8 @@
 .home-item .nav-link:hover {
     background-color: blue; 
     color: white; 
+}
+
+.logout-item .nav-link , .chat-item .nav-link ,.home-item .nav-link {
+    border-radius: 25px;
 }

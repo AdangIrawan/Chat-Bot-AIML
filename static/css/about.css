@@ -6,26 +6,27 @@ body {
     padding: 0;
 }
 
-nav {
-    background-color: #333;
-    padding: 10px 0;
+.isi {
+    margin-top: 50px;
+    margin-left:258px;
+    margin-right: 258px;
 }
+
 
 nav ul {
     list-style: none;
     text-align: center;
+    padding: 0; /* Pastikan tidak ada padding */
+    margin: 0; /* Pastikan tidak ada margin */
+    display: flex; /* Gunakan flexbox untuk mengatur elemen secara horizontal */
+    justify-content: center; /* Pusatkan elemen navigasi */
 }
 
 nav ul li {
     display: inline-block;
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-}
+
 
 nav ul li a:hover {
     background-color: #555;
@@ -40,4 +41,7 @@ p {
     text-align: center;
     color: #666;
 }
-
+.containers img{
+    text-align: right;
+    top: 200px;
+}
