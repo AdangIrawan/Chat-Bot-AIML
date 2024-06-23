@@ -12,20 +12,18 @@
 <body>
     {% include 'layouts/navbar.html' %}
     {% include 'layouts/aboutnav.html' %}
-    <table>
-        <thead>
-            <tr>
-                <th class="centered-text">Daftar Ssd</th>
-            </tr>
-        </thead>
+    <table class="daftar">
+       
         <tbody>
+            <th class="centered-text">Daftar Motherboard</th>
             {% for ssd in ssd_list %}
                 <tr>
                     <td class="centered-text">{{ ssd['Nama'] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
-    </table>
+
+</table>
     {% include 'layouts/footer.html' %}
 </body>
 </html>

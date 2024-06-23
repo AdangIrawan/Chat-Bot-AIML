@@ -12,20 +12,20 @@
 <body>
     {% include 'layouts/navbar.html' %}
     {% include 'layouts/aboutnav.html' %}
-    <table>
-        <thead>
-            <tr>
+    <div class="pagelist">
+    <table class="daftar">
+       
+            <tbody>
                 <th class="centered-text">Daftar Motherboard</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for mobo in mobo_list %}
-                <tr>
-                    <td class="centered-text">{{ mobo['Nama'] }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+                {% for mobo in mobo_list %}
+                    <tr>
+                        <td class="centered-text">{{ mobo['Nama'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
     </table>
-    {% include 'layouts/footer.html' %}
+</div>
 </body>
+{% include 'layouts/footer.html' %}
 </html>

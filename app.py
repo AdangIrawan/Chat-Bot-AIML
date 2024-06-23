@@ -34,6 +34,8 @@ def home():
         return render_template('home.html')
     return redirect(url_for('login'))
 
+
+
 @app.route('/about')
 def about():
     if 'username' in session:

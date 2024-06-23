@@ -10,8 +10,14 @@
 </head>
 <body>
     {% include 'layouts/navbar.html' %}
-    <h1>Welcome to the About Page</h1>
-    {% include 'layouts/aboutnav.html' %}
-    {% include 'layouts/footer.html' %}
+    <section class="container">
+        <div class="isi">
+            <h1>Welcome to the About Page</h1>
+            {% include 'layouts/aboutnav.html' %}
+
+        </div>
+    </section>
+   
 </body>
+{% include 'layouts/footer.html' %}
 </html>
